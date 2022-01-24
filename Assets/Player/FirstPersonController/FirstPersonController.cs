@@ -16,6 +16,8 @@ using UnityEngine.UI;
 
 public class FirstPersonController : MonoBehaviour
 {
+   
+
     private Rigidbody rb;
 
     #region Camera Movement Variables
@@ -151,7 +153,10 @@ public class FirstPersonController : MonoBehaviour
 
     void Start()
     {
-        if(lockCursor)
+
+       
+
+        if (lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -202,10 +207,12 @@ public class FirstPersonController : MonoBehaviour
 
     private void Update()
     {
+       
+
         #region Camera
 
         // Control camera movement
-        if(cameraCanMove)
+        if (cameraCanMove)
         {
             yaw = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * mouseSensitivity;
 
@@ -372,6 +379,8 @@ public class FirstPersonController : MonoBehaviour
         {
             // Calculate how fast we should be moving
             Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+           
 
             // Checks if player is walking and isGrounded
             // Will allow head bob
