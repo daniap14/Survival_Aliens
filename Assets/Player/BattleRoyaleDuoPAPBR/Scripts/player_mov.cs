@@ -33,6 +33,19 @@ public class player_mov : MonoBehaviour
 
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            playerAnimator.SetBool("Reload", true);
+
+
+        }
+
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            playerAnimator.SetBool("Reload", false);
+
+        }
+
 
     }
 }
