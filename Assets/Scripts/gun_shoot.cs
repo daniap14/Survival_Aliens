@@ -25,13 +25,16 @@ public class gun_shoot : MonoBehaviour
 
     //Graphics
     public GameObject muzzleFlash, bulletHoleGraphic;
-    
-    
+
+    Camera cam;
+
     public TextMeshProUGUI text;
 
     private void Awake()
     {
         playerAnimator = GetComponent<Animator>();
+
+        cam = Camera.main;
 
         bulletsLeft = magazineSize;
         readyToShoot = true;
@@ -85,8 +88,7 @@ public class gun_shoot : MonoBehaviour
         if (Physics.Raycast(Player.transform.position, direction, out rayHit, range, whatIsEnemy))
         {
             Debug.Log(rayHit.collider.name);
-
-           
+            
         }
 
        
@@ -94,6 +96,13 @@ public class gun_shoot : MonoBehaviour
         //Graphics
         Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
         Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
+
+        RaycastHit hit;
+
+        if(Physics.Raycast(cam.transform.position,cam.transform.forward,out hit, range))
+        {
+            GameObject bH = Instantiate(bulletHoleGraphic, hit.point + new Vector3(0f, 0f, -.02f), Quaternion.LookRotation(-hit.normal));
+        }
 
         bulletsLeft--;
         bulletsShot--;
@@ -107,6 +116,10 @@ public class gun_shoot : MonoBehaviour
         }
            
     }
+
+    
+   
+
     private void ResetShot()
     {
        
@@ -123,4 +136,6 @@ public class gun_shoot : MonoBehaviour
         bulletsLeft = magazineSize;
         reloading = false;
     }
+
+  
 }
