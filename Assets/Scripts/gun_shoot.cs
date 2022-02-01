@@ -97,13 +97,6 @@ public class gun_shoot : MonoBehaviour
         Instantiate(bulletHoleGraphic, rayHit.point, Quaternion.Euler(0, 180, 0));
         Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
-        RaycastHit hit;
-
-        if(Physics.Raycast(cam.transform.position,cam.transform.forward,out hit, range))
-        {
-            GameObject bH = Instantiate(bulletHoleGraphic, hit.point + new Vector3(0f, 0f, -.02f), Quaternion.LookRotation(-hit.normal));
-        }
-
         bulletsLeft--;
         bulletsShot--;
 
@@ -111,18 +104,13 @@ public class gun_shoot : MonoBehaviour
 
         if (bulletsShot > 0 && bulletsLeft > 0)
         {
-
             Invoke("Shoot", timeBetweenShots);
         }
            
     }
 
-    
-   
-
     private void ResetShot()
     {
-       
         readyToShoot = true;
     }
     private void Reload()
