@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 1895789621082170329}
   - component: {fileID: 1895789621082170334}
   m_Layer: 9
-  m_Name: Polygonal Metalon Purple
+  m_Name: enemy1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

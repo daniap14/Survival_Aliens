@@ -21,16 +21,30 @@ public class enemy_move : MonoBehaviour
     //States
     public float attackRange;
     public bool playerInAttackRange;
-    public float live;
+    public float curHealth = 100;
+    
 
-    void Start()
+    public void AddjustCurrentHealth(float dmg)
     {
-        
-        
+        curHealth += dmg;
+
+        if (curHealth < 0)
+        {
+            curHealth = 0;
+        }
+            
+        if (curHealth == 0)
+        {
+            Destroy(gameObject);
+        }
+       
+
     }
 
     private void Update()
     {
+
+
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
         if (!playerInAttackRange) ChasePlayer();
