@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
+using TMPro;
 
 public class enemy_move : MonoBehaviour
 {
@@ -24,22 +25,7 @@ public class enemy_move : MonoBehaviour
     public float curHealth = 100;
     
 
-    public void AddjustCurrentHealth(float dmg)
-    {
-        curHealth += dmg;
-
-        if (curHealth < 0)
-        {
-            curHealth = 0;
-        }
-            
-        if (curHealth == 0)
-        {
-            Destroy(gameObject);
-        }
-       
-
-    }
+   
 
     private void Update()
     {
@@ -84,7 +70,7 @@ public class enemy_move : MonoBehaviour
             int randomAttackType = Random.Range(1, 3);
             playerAnimator.SetInteger("AttackType_int", randomAttackType);
 
-             playerAnimator.SetTrigger("Smash Attack");
+            playerAnimator.SetTrigger("Smash Attack");
             playerAnimator.SetTrigger("Stab Attack");
 
 
@@ -106,4 +92,26 @@ public class enemy_move : MonoBehaviour
         Gizmos.color = Color.yellow;
         
     }
+
+    public void OnCollisionEnter(Collision otherCollider)
+    {
+        if (otherCollider.gameObject.CompareTag("bulet"))
+        {
+            playerAnimator.SetTrigger("Take Damage");
+
+            curHealth = curHealth-5;
+
+            if (curHealth < 0)
+            {
+                curHealth = 0;
+            }
+
+            if (curHealth == 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+    }
+
 }

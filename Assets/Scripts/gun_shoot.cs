@@ -43,7 +43,7 @@ public class gun_shoot : MonoBehaviour
     {
         MyInput();
 
-        //SetText
+        //Text
         text.SetText(bulletsLeft + " / " + magazineSize);
     }
     private void MyInput()
@@ -88,8 +88,10 @@ public class gun_shoot : MonoBehaviour
         if (Physics.Raycast(Player.transform.position, direction, out rayHit, range, whatIsEnemy))
         {
             Debug.Log(rayHit.collider.name);
-            
+
         }
+
+
 
        
 
@@ -108,6 +110,8 @@ public class gun_shoot : MonoBehaviour
         }
            
     }
+
+    
 
     private void ResetShot()
     {

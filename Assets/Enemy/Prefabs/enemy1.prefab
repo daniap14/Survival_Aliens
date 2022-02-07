@@ -348,6 +348,8 @@ GameObject:
   - component: {fileID: 1953382876669173714}
   - component: {fileID: 1895789621082170329}
   - component: {fileID: 1895789621082170334}
+  - component: {fileID: 5703235887321254201}
+  - component: {fileID: 1774013574487975052}
   m_Layer: 9
   m_Name: enemy1
   m_TagString: Enemy
@@ -429,7 +431,7 @@ MonoBehaviour:
   timeBetweenAttacks: 2
   attackRange: 1.4
   playerInAttackRange: 0
-  live: 100
+  curHealth: 100
 --- !u!195 &1895789621082170334
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -452,6 +454,32 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &5703235887321254201
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894327468172897914}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.295972, y: 0.8522053, z: 3.1860108}
+  m_Center: {x: 0.011787352, y: 0.5493436, z: 0.2542888}
+--- !u!65 &1774013574487975052
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894327468172897914}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.1138028, z: 2.2919261}
+  m_Center: {x: 0, y: 1.2847031, z: 0.08006834}
 --- !u!1 &1894354399387637972
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,8 +795,6 @@ GameObject:
   - component: {fileID: 1891986172704442208}
   - component: {fileID: 1992886190594296186}
   - component: {fileID: 861504973733217727}
-  - component: {fileID: 1895789622184061944}
-  - component: {fileID: 1895789622184061950}
   m_Layer: 9
   m_Name: Polygonal Metalon
   m_TagString: Untagged
@@ -885,33 +911,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &1895789622184061944
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1894531229444045300}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.7148171
-  m_Height: 2.7519836
-  m_Direction: 1
-  m_Center: {x: -0.009470669, y: -0.30643266, z: 1.0380801}
---- !u!65 &1895789622184061950
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1894531229444045300}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.2693057, y: 2.4356656, z: 0.7659494}
-  m_Center: {x: 0.055102814, y: 0.04068625, z: 0.55645835}
 --- !u!1 &1894548370532869350
 GameObject:
   m_ObjectHideFlags: 0
