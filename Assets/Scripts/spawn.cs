@@ -6,6 +6,7 @@ public class spawn : MonoBehaviour
 {
     public GameObject obstaclePrefab;
     private Vector3 spawnPos = new Vector3(36, 44, 0);
+    private Vector3 spawnPos2 = new Vector3(-17, 44, 0);
 
     private float repeatSpawn = 5f;
     private float startSpawn = 2f;
@@ -27,6 +28,12 @@ public class spawn : MonoBehaviour
 
             count++;
         }
-        
+        if (count < max)
+        {
+            Instantiate(obstaclePrefab, spawnPos2, obstaclePrefab.transform.rotation);
+
+            count++;
+        }
+
     }
 }
