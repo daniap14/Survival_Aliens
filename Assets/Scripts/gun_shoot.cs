@@ -45,6 +45,11 @@ public class gun_shoot : MonoBehaviour
 
         //Text
         text.SetText(bulletsLeft + " / " + magazineSize);
+        if (bulletsLeft == 0)
+        {
+            playerAnimator.SetBool("shoot", false);
+        }
+        
     }
     private void MyInput()
     {
@@ -67,6 +72,7 @@ public class gun_shoot : MonoBehaviour
         }
         else if (!shooting)
         {
+
             playerAnimator.SetBool("shoot", false);
         }
        
@@ -106,6 +112,7 @@ public class gun_shoot : MonoBehaviour
 
         if (bulletsShot > 0 && bulletsLeft > 0)
         {
+            
             Invoke("Shoot", timeBetweenShots);
         }
            
@@ -120,11 +127,13 @@ public class gun_shoot : MonoBehaviour
     private void Reload()
     {
         playerAnimator.SetBool("shoot", false);
+        playerAnimator.SetBool("Reload", true);
         reloading = true;
         Invoke("ReloadFinished", reloadTime);
     }
     private void ReloadFinished()
     {
+        playerAnimator.SetBool("Reload", false);
         bulletsLeft = magazineSize;
         reloading = false;
     }
