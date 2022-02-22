@@ -7,8 +7,11 @@ using TMPro;
 
 public class enemy_move : MonoBehaviour
 {
+    //Scripts
     public gun_shoot score;
+    public HP HP;
 
+    //Animator
     private Animator playerAnimator;
 
     public NavMeshAgent agent;
@@ -19,44 +22,33 @@ public class enemy_move : MonoBehaviour
     public float timeBetweenAttacks;
     bool alreadyAttacked;
 
-    
-
     //States
     public float attackRange;
     public bool playerInAttackRange;
     public float curHealth = 100;
-   
-
-
-
 
     private void Update()
     {
-        
-
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
         if (!playerInAttackRange) ChasePlayer();
         if (playerInAttackRange) AttackPlayer();
 
-        transform.LookAt(player);
-
-        
+        transform.LookAt(player);  
     }
 
     private void Awake()
-    {
+    { 
+        HP = FindObjectOfType<HP>();
         score = FindObjectOfType<gun_shoot>();
 
         playerAnimator = GetComponent<Animator>();
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
-
     }
 
     private void ChasePlayer()
     {
-
         agent.SetDestination(player.position);
         playerAnimator.SetBool("Walk Forward", true);
     }
@@ -67,24 +59,20 @@ public class enemy_move : MonoBehaviour
         agent.SetDestination(transform.position);
         playerAnimator.SetBool("Walk Forward", false);
 
-        
-
         if (!alreadyAttacked)
         {
             //attackCode
-
-
             int randomAttackType = Random.Range(1, 3);
             playerAnimator.SetInteger("AttackType_int", randomAttackType);
 
             playerAnimator.SetTrigger("Smash Attack");
             playerAnimator.SetTrigger("Stab Attack");
 
+            HP.currentHealth = HP.currentHealth - 10;
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
-
     }
 
     private void ResetAttack()
@@ -92,14 +80,15 @@ public class enemy_move : MonoBehaviour
         alreadyAttacked = false; 
     }
 
+    //Attack Range
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.color = Color.yellow;
-        
     }
 
+    //Take Damage 
     public void OnCollisionEnter(Collision otherCollider)
     {
         if (otherCollider.gameObject.CompareTag("bulet"))
