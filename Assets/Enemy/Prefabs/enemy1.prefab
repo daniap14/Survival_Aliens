@@ -420,6 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7997209acc2bac04c9e3ea06b5a9e0fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 0}
   agent: {fileID: 1895789621082170334}
   player: {fileID: 0}
   whatIsGround:
@@ -432,6 +433,7 @@ MonoBehaviour:
   attackRange: 1.4
   playerInAttackRange: 0
   curHealth: 100
+  score: 0
 --- !u!195 &1895789621082170334
 NavMeshAgent:
   m_ObjectHideFlags: 0

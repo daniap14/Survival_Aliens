@@ -5,6 +5,8 @@ using TMPro;
 
 public class gun_shoot : MonoBehaviour
 {
+    
+
     private Animator playerAnimator;
 
     //Gun stats
@@ -13,6 +15,8 @@ public class gun_shoot : MonoBehaviour
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
     int bulletsLeft, bulletsShot;
+    public float score = 0;
+    
 
     //bools 
     bool shooting, readyToShoot, reloading;
@@ -29,15 +33,21 @@ public class gun_shoot : MonoBehaviour
     Camera cam;
 
     public TextMeshProUGUI text;
+    public TextMeshProUGUI scoreText;
+
 
     private void Awake()
     {
+       
+
         playerAnimator = GetComponent<Animator>();
 
         cam = Camera.main;
 
         bulletsLeft = magazineSize;
         readyToShoot = true;
+
+
     }
     private void Update()
     {
@@ -45,10 +55,14 @@ public class gun_shoot : MonoBehaviour
 
         //Text
         text.SetText(bulletsLeft + " / " + magazineSize);
+        scoreText.SetText("Score: " + score);
+
         if (bulletsLeft == 0)
         {
             playerAnimator.SetBool("shoot", false);
         }
+
+       
         
     }
     private void MyInput()
@@ -93,11 +107,10 @@ public class gun_shoot : MonoBehaviour
         //RayCast
         if (Physics.Raycast(Player.transform.position, direction, out rayHit, range, whatIsEnemy))
         {
+            
             Debug.Log(rayHit.collider.name);
 
         }
-
-
 
        
 

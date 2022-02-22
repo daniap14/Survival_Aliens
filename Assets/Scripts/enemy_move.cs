@@ -7,6 +7,8 @@ using TMPro;
 
 public class enemy_move : MonoBehaviour
 {
+    public gun_shoot score;
+
     private Animator playerAnimator;
 
     public NavMeshAgent agent;
@@ -23,13 +25,14 @@ public class enemy_move : MonoBehaviour
     public float attackRange;
     public bool playerInAttackRange;
     public float curHealth = 100;
-    
-
    
+
+
+
 
     private void Update()
     {
-
+        
 
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
@@ -43,6 +46,8 @@ public class enemy_move : MonoBehaviour
 
     private void Awake()
     {
+        score = FindObjectOfType<gun_shoot>();
+
         playerAnimator = GetComponent<Animator>();
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
@@ -67,6 +72,8 @@ public class enemy_move : MonoBehaviour
         if (!alreadyAttacked)
         {
             //attackCode
+
+
             int randomAttackType = Random.Range(1, 3);
             playerAnimator.SetInteger("AttackType_int", randomAttackType);
 
@@ -98,7 +105,7 @@ public class enemy_move : MonoBehaviour
         if (otherCollider.gameObject.CompareTag("bulet"))
         {
             playerAnimator.SetTrigger("Take Damage");
-
+            score.score = score.score + 3;
             curHealth = curHealth-5;
 
             if (curHealth < 0)
@@ -108,6 +115,7 @@ public class enemy_move : MonoBehaviour
 
             if (curHealth == 0)
             {
+                score.score = score.score+100;
                 Destroy(gameObject);
             }
         }
