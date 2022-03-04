@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Random = UnityEngine.Random;
 
 public class gun_shoot : MonoBehaviour
 {
-    
+    private AudioSource playerAudioSource;
 
     private Animator playerAnimator;
 
@@ -35,10 +36,12 @@ public class gun_shoot : MonoBehaviour
     public TextMeshProUGUI text;
     public TextMeshProUGUI scoreText;
 
+    //sound
+    public AudioClip gun;
 
     private void Awake()
     {
-       
+        playerAudioSource = GetComponent<AudioSource>();
 
         playerAnimator = GetComponent<Animator>();
 
@@ -95,6 +98,7 @@ public class gun_shoot : MonoBehaviour
     {
         readyToShoot = false;
 
+        playerAudioSource.PlayOneShot(gun, 1);
         playerAnimator.SetBool("shoot", true);
 
         //Spread

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HP : MonoBehaviour
 {
@@ -27,7 +28,9 @@ public class HP : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+
             gameOver = true;
+            SceneManager.LoadScene("GameOver");
         }
     }
 
@@ -48,6 +51,4 @@ public class HP : MonoBehaviour
 
     }
     
-
-   
 }

@@ -20,4 +20,9 @@ public class playbutton : MonoBehaviour
     {
         SceneManager.LoadScene("MainScreen");
     }
+
+    public void GameOverExit()
+    {
+        SceneManager.LoadScene("MainScreen");
+    }
 }
