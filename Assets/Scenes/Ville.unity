@@ -585,7 +585,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 08707a23c86b4f94bac0ad43a9b90d33, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.31
+  m_Volume: 0.04
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1097,7 +1097,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1190234570}
-  score: 0
 --- !u!114 &981512619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1943,9 +1942,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c1df38eb3f6f4044bfbabaeb8046211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 350470664}
   obstaclePrefab: {fileID: 2046537483962969750, guid: e9a03d46b76afe246a9ffd58d255bb65, type: 3}
+  round: 1
   max: 10
   count: 1
+  kill: 0
 --- !u!4 &1916942437
 Transform:
   m_ObjectHideFlags: 0

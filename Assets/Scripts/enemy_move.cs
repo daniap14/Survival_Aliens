@@ -10,6 +10,7 @@ public class enemy_move : MonoBehaviour
     //Scripts
     public score_script score;
     public HP HP;
+    public spawn kill;
 
     //Animator
     private Animator playerAnimator;
@@ -42,6 +43,7 @@ public class enemy_move : MonoBehaviour
     { 
         HP = FindObjectOfType<HP>();
         score = FindObjectOfType<score_script>();
+        kill = FindObjectOfType<spawn>();
 
         playerAnimator = GetComponent<Animator>();
         player = GameObject.Find("Player").transform;
@@ -92,7 +94,7 @@ public class enemy_move : MonoBehaviour
     //Take Damage 
     public void OnCollisionEnter(Collision otherCollider)
     {
-        if (otherCollider.gameObject.CompareTag("bulet"))
+        if (otherCollider.gameObject.CompareTag("bulet") && (curHealth > 0))
         {
             playerAnimator.SetTrigger("Take Damage");
             //score.score = score.score + 1;
@@ -106,6 +108,7 @@ public class enemy_move : MonoBehaviour
 
             if (curHealth == 0)
             {
+                kill.kill++;
                 percistence_data.sharedInstance.scoreData = percistence_data.sharedInstance.scoreData + 50;
                 Destroy(gameObject);
             }
