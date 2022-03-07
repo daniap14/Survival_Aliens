@@ -16,7 +16,7 @@ public class gun_shoot : MonoBehaviour
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
     int bulletsLeft, bulletsShot;
-    public float score = 0;
+    
     
 
     //bools 
@@ -41,6 +41,8 @@ public class gun_shoot : MonoBehaviour
 
     private void Awake()
     {
+        
+
         playerAudioSource = GetComponent<AudioSource>();
 
         playerAnimator = GetComponent<Animator>();
@@ -49,24 +51,20 @@ public class gun_shoot : MonoBehaviour
 
         bulletsLeft = magazineSize;
         readyToShoot = true;
-
-
     }
+
     private void Update()
     {
         MyInput();
 
         //Text
         text.SetText(bulletsLeft + " / " + magazineSize);
-        scoreText.SetText("Score: " + score);
+        
 
         if (bulletsLeft == 0)
         {
             playerAnimator.SetBool("shoot", false);
         }
-
-       
-        
     }
     private void MyInput()
     {
@@ -98,7 +96,7 @@ public class gun_shoot : MonoBehaviour
     {
         readyToShoot = false;
 
-        playerAudioSource.PlayOneShot(gun, 1);
+        //playerAudioSource.PlayOneShot(gun, 1);
         playerAnimator.SetBool("shoot", true);
 
         //Spread

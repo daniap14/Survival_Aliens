@@ -8,7 +8,7 @@ using TMPro;
 public class enemy_move : MonoBehaviour
 {
     //Scripts
-    public gun_shoot score;
+    public score_script score;
     public HP HP;
 
     //Animator
@@ -26,6 +26,7 @@ public class enemy_move : MonoBehaviour
     public float attackRange;
     public bool playerInAttackRange;
     public float curHealth = 100;
+    
 
     private void Update()
     {
@@ -40,7 +41,7 @@ public class enemy_move : MonoBehaviour
     private void Awake()
     { 
         HP = FindObjectOfType<HP>();
-        score = FindObjectOfType<gun_shoot>();
+        score = FindObjectOfType<score_script>();
 
         playerAnimator = GetComponent<Animator>();
         player = GameObject.Find("Player").transform;
@@ -68,7 +69,7 @@ public class enemy_move : MonoBehaviour
             playerAnimator.SetTrigger("Smash Attack");
             playerAnimator.SetTrigger("Stab Attack");
 
-            HP.currentHealth = HP.currentHealth - 10;
+            HP.currentHealth = HP.currentHealth - 50;
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -94,7 +95,8 @@ public class enemy_move : MonoBehaviour
         if (otherCollider.gameObject.CompareTag("bulet"))
         {
             playerAnimator.SetTrigger("Take Damage");
-            score.score = score.score + 3;
+            //score.score = score.score + 1;
+            percistence_data.sharedInstance.scoreData++;
             curHealth = curHealth-5;
 
             if (curHealth < 0)
@@ -104,7 +106,7 @@ public class enemy_move : MonoBehaviour
 
             if (curHealth == 0)
             {
-                score.score = score.score+100;
+                percistence_data.sharedInstance.scoreData = percistence_data.sharedInstance.scoreData + 50;
                 Destroy(gameObject);
             }
         }

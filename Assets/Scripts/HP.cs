@@ -14,7 +14,6 @@ public class HP : MonoBehaviour
     public Gradient gradient;
     public Image fill;
 
-    public bool gameOver;
 
     void Start()
     {
@@ -28,8 +27,8 @@ public class HP : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            Cursor.lockState = CursorLockMode.None;
 
-            gameOver = true;
             SceneManager.LoadScene("GameOver");
         }
     }
