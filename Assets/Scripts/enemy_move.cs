@@ -106,6 +106,7 @@ public class enemy_move : MonoBehaviour
 
             if (curHealth == 0)
             {
+
                 kill.kill++;
                 percistence_data.sharedInstance.scoreData = percistence_data.sharedInstance.scoreData + 50;
                 Destroy(gameObject);
