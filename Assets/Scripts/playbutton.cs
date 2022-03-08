@@ -11,11 +11,6 @@ public class playbutton : MonoBehaviour
         SceneManager.LoadScene("Ville");
     }
 
-    public void OptionsButton()
-    {
-        SceneManager.LoadScene("Options");
-    }
-
     public void ExitButton()
     {
         SceneManager.LoadScene("MainScreen");
