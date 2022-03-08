@@ -1088,6 +1088,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: optionMenu, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7971461472707635780, guid: 1d9d50dd27806204dbaf7b494b1c0a67, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -304
+      objectReference: {fileID: 0}
     - target: {fileID: 7971461473305213056, guid: 1d9d50dd27806204dbaf7b494b1c0a67, type: 3}
       propertyPath: m_Name
       value: Settings_prefab
@@ -1179,6 +1183,14 @@ PrefabInstance:
     - target: {fileID: 7971461473305213061, guid: 1d9d50dd27806204dbaf7b494b1c0a67, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971461473429935055, guid: 1d9d50dd27806204dbaf7b494b1c0a67, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 635
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971461473429935055, guid: 1d9d50dd27806204dbaf7b494b1c0a67, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 296
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d9d50dd27806204dbaf7b494b1c0a67, type: 3}
