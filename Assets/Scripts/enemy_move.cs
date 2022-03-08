@@ -96,8 +96,6 @@ public class enemy_move : MonoBehaviour
     {
         if (otherCollider.gameObject.CompareTag("bulet") && (curHealth > 0))
         {
-            playerAnimator.SetTrigger("Take Damage");
-            //score.score = score.score + 1;
             percistence_data.sharedInstance.scoreData++;
             curHealth = curHealth-5;
 
