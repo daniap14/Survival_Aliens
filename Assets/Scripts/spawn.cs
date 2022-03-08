@@ -7,6 +7,8 @@ public class spawn : MonoBehaviour
 {
     public TextMeshProUGUI text;
 
+    public HP HP;
+
     public GameObject obstaclePrefab;
     private Vector3 spawnPos = new Vector3(36, 44, 0);
     private Vector3 spawnPos2 = new Vector3(-17, 44, 0);
@@ -22,7 +24,10 @@ public class spawn : MonoBehaviour
 
     void Start()
     {
+        HP = FindObjectOfType<HP>();
         InvokeRepeating("SpawnObstacle", startSpawn, repeatSpawn);
+
+        percistence_data.sharedInstance.scoreData = 0;
     }
 
     private void Update()
@@ -50,6 +55,7 @@ public class spawn : MonoBehaviour
         {
             kill = 0;
             count = 1;
+            HP.currentHealth = 100;
             round++;
             max = max + round;
         }

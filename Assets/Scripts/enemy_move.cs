@@ -71,7 +71,7 @@ public class enemy_move : MonoBehaviour
             playerAnimator.SetTrigger("Smash Attack");
             playerAnimator.SetTrigger("Stab Attack");
 
-            HP.currentHealth = HP.currentHealth - 50;
+            HP.currentHealth = HP.currentHealth - 20;
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
