@@ -20,4 +20,10 @@ public class playbutton : MonoBehaviour
     {
         SceneManager.LoadScene("MainScreen");
     }
+
+    public void ExitGame()
+    {
+        Debug.Log("Exit Game");
+        Application.Quit();
+    }
 }
