@@ -33,6 +33,19 @@ public class spawn : MonoBehaviour
     private void Update()
     {
         text.SetText("Ronda " + round);
+
+        if (round == 4)
+        {
+            repeatSpawn = 4f;
+        }
+        if (round == 7)
+        {
+            repeatSpawn = 3f;
+        }
+        if (round == 10)
+        {
+            repeatSpawn = 1f;
+        }
     }
 
     
@@ -53,6 +66,7 @@ public class spawn : MonoBehaviour
 
         if (max == kill)
         {
+
             kill = 0;
             count = 1;
             HP.currentHealth = 100;
